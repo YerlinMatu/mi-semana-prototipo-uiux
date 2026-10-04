@@ -5,9 +5,9 @@ Prototipo navegable desarrollado por el Grupo 04 para la actividad evaluativa de
 ## Integrantes
 
 - Yerlinson Maturana Serna
-- Brayan Estif Calderon Gomez
-- Sadane Geronimo Miguel Santiago Acevedo Virgues
-- Julian Camilo Corredor Rojas
+- Brayan Estif Calderón Gómez
+- Sadane Gerónimo Miguel Santiago Acevedo Virgüés
+- Julián Camilo Corredor Rojas
 
 ## Propuesta
 
