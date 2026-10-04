@@ -7,6 +7,9 @@
   <meta name="description" content="Prototipo navegable Mi Semana: prioriza actividades, comprende requisitos y confirma entregas con certeza.">
   <meta name="author" content="Grupo 04: Yerlinson Maturana Serna, Brayan Estif Calderón Gómez, Sadane Gerónimo Miguel Santiago Acevedo Virgüés y Julián Camilo Corredor Rojas.">
   <title>Mi Semana | Campus virtual</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23123f73'/%3E%3Cpath d='M17 19h30v29H17z' fill='white'/%3E%3Cpath d='M17 27h30' stroke='%23123f73' stroke-width='4'/%3E%3Cpath d='M23 14v10M41 14v10' stroke='%23f5b82e' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='m24 37 5 5 11-12' fill='none' stroke='%230d7a53' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -38,20 +41,20 @@
             <h1 id="week-title">Tu próxima acción, sin buscar curso por curso</h1>
             <p>Ordenamos las actividades por vencimiento, esfuerzo y estado para que puedas decidir en segundos.</p>
           </div>
-          <button class="secondary-button" id="open-change-summary">3 cambios esta semana</button>
+          <button class="secondary-button change-button" id="open-change-summary"><span aria-hidden="true">↻</span> 3 cambios esta semana</button>
         </div>
 
         <div class="summary-grid" aria-label="Resumen de la semana">
-          <article><span>Pendientes</span><strong>4</strong><small>de 11 actividades</small></article>
-          <article><span>Tiempo estimado</span><strong>7 h</strong><small>antes del jueves</small></article>
-          <article><span>Completadas</span><strong>6</strong><small>una requiere confirmación</small></article>
+          <article class="metric-card metric-pending"><span class="metric-icon" aria-hidden="true">◷</span><div><span>Pendientes</span><small>de 11 actividades</small></div><strong>4</strong></article>
+          <article class="metric-card metric-time"><span class="metric-icon" aria-hidden="true">⌁</span><div><span>Tiempo estimado</span><small>antes del jueves</small></div><strong>7 h</strong></article>
+          <article class="metric-card metric-done"><span class="metric-icon" aria-hidden="true">✓</span><div><span>Completadas</span><small>una requiere confirmación</small></div><strong>6</strong></article>
         </div>
 
         <div class="workspace">
           <section class="task-panel" aria-labelledby="task-list-title">
             <div class="panel-heading">
               <div><p class="eyebrow">HOY</p><h2 id="task-list-title">Actividades priorizadas</h2></div>
-              <button class="icon-button" id="filter-button" aria-expanded="false" aria-controls="filter-panel">Filtrar</button>
+              <button class="icon-button" id="filter-button" aria-expanded="false" aria-controls="filter-panel"><span aria-hidden="true">≡</span> Filtrar</button>
             </div>
             <div id="filter-panel" class="filter-panel" hidden>
               <label><input type="checkbox" checked data-filter="pending"> Pendientes</label>
