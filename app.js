@@ -1,5 +1,5 @@
 const tasks = [
-  { id: 0, title: "Actividad 3 · Prototipo de alta fidelidad", course: "UI/UX para Arquitectos", due: "Vence en 2 días", effort: "2 horas", format: "PDF · máx. 20 MB", mode: "Individual", weight: "20 % de la nota", status: "En preparación", tone: "urgent", summary: "Construye un prototipo navegable de tres pantallas, con un flujo principal y criterios de usabilidad y accesibilidad.", requirements: ["Tres pantallas principales", "Una ruta navegable completa", "Decisiones de accesibilidad documentadas"] },
+  { id: 0, title: "Actividad 3 · Prototipo de alta fidelidad", course: "UI/UX para Arquitectos", due: "Vence en 2 días", effort: "2 horas", format: "PDF · máx. 20 MB", mode: "Individual", weight: "20 % de la nota", status: "En preparación", tone: "urgent", summary: "", requirements: ["Tres pantallas principales", "Una ruta navegable completa", "Decisiones de accesibilidad documentadas"] },
   { id: 1, title: "Ensayo · Ética y decisiones automatizadas", course: "Ética digital", due: "Vence en 4 días", effort: "45 minutos", format: "Documento", mode: "Individual", weight: "15 % de la nota", status: "Pendiente", tone: "normal", summary: "Argumenta una postura frente a un caso de decisión automatizada con dos fuentes del curso.", requirements: ["800 a 1.000 palabras", "Dos fuentes citadas", "Conclusión personal"] },
   { id: 2, title: "Quiz Unidad 2", course: "Gobierno de TI", due: "Enviada · 14 oct", effort: "30 minutos", format: "Cuestionario", mode: "Individual", weight: "10 % de la nota", status: "Enviada", tone: "sent", summary: "Entrega registrada correctamente. El comprobante permanece disponible para evitar reverificaciones.", requirements: ["10 preguntas respondidas", "Envío confirmado", "Código ENT-4F7C2"] },
   { id: 3, title: "Mapa de capacidades", course: "Arquitectura Empresarial", due: "Vence en 6 días", effort: "3 horas", format: "Presentación", mode: "Grupo", weight: "25 % de la nota", status: "Pendiente", tone: "normal", summary: "Construye el mapa de capacidades y justifica las dependencias principales.", requirements: ["Mapa jerárquico", "Dependencias señaladas", "Justificación de una página"] }
@@ -59,9 +59,9 @@ function renderDetail() {
     <p class="eyebrow">${task.course.toUpperCase()}</p>
     <h2>${task.title}</h2>
     <div class="status-row"><span class="status-pill ${statusClass}">${task.status}</span><span class="status-pill neutral">${task.due}</span></div>
-    <p>${task.summary}</p>
+    ${task.summary ? `<p>${task.summary}</p>` : ""}
     <div class="fact-grid"><div><span>Esfuerzo estimado</span><strong>${task.effort}</strong></div><div><span>Formato</span><strong>${task.format}</strong></div><div><span>Modalidad</span><strong>${task.mode}</strong></div><div><span>Ponderación</span><strong>${task.weight}</strong></div></div>
-    <div class="requirements"><h3>QUÉ HAY QUE HACER</h3><ul>${task.requirements.map(item => `<li>${item}</li>`).join("")}</ul></div>
+    <div class="requirements"><h3>REQUISITOS</h3><ul>${task.requirements.map(item => `<li>${item}</li>`).join("")}</ul></div>
     <div class="detail-actions">${task.tone === "sent" ? '<button class="primary-button" data-download-receipt>Descargar comprobante</button>' : '<button class="primary-button" data-start-submission>Comenzar ahora</button><button class="secondary-button" data-schedule>Programar</button>'}</div>`;
   taskDetail.querySelector("[data-start-submission]")?.addEventListener("click", startSubmission);
   taskDetail.querySelector("[data-schedule]")?.addEventListener("click", () => showToast("Actividad programada para mañana a las 19:00."));
