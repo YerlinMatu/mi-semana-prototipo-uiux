@@ -53,7 +53,7 @@ main { max-width: 1420px; margin: 0 auto; padding: 48px 38px 100px; }
 .icon-button span { color: var(--blue); font-size: 1.15rem; transform: rotate(90deg); }
 .summary-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 15px; margin-bottom: 20px; }
 .summary-grid .metric-card { position: relative; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; min-height: 104px; padding: 18px 20px; overflow: hidden; border: 1px solid rgba(224,228,240,.95); border-radius: 20px; background: rgba(255,255,255,.88); box-shadow: var(--shadow-sm); }
-.summary-grid .metric-card::after { content: ""; position: absolute; right: -34px; top: -36px; width: 104px; height: 104px; border-radius: 50%; background: currentColor; opacity: .045; }
+.summary-grid .metric-card::after { content: ""; position: absolute; right: -34px; top: -36px; width: 129px; height: 150px; border-radius: 50%; background: currentColor; opacity: .045; }
 .metric-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 14px; font-family: "Sora",sans-serif; font-size: 1.1rem; font-weight: 700; }
 .metric-pending .metric-icon { color: var(--red); background: var(--red-soft); }
 .metric-time .metric-icon { color: var(--violet); background: #f0edff; }
