@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123f73">
+  <meta name="description" content="Prototipo navegable Mi Semana: prioriza actividades, comprende requisitos y confirma entregas con certeza.">
+  <meta name="author" content="Grupo 04: Yerlinson Maturana Serna, Brayan Estif Calderon Gomez, Sadane Geronimo Miguel Santiago Acevedo Virgues y Julian Camilo Corredor Rojas.">
+  <title>Mi Semana | Campus virtual</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23123f73'/%3E%3Cpath d='M17 19h30v29H17z' fill='white'/%3E%3Cpath d='M17 27h30' stroke='%23123f73' stroke-width='4'/%3E%3Cpath d='M23 14v10M41 14v10' stroke='%23f5b82e' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='m24 37 5 5 11-12' fill='none' stroke='%230d7a53' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido principal</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" data-route="week" aria-label="Mi Semana, inicio">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span><strong>Mi Semana</strong><small>Campus virtual</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Navegación principal">
+        <button class="nav-item active" data-route="week">Mi semana</button>
+        <button class="nav-item" data-route="planner">Planificador</button>
+        <button class="nav-item" data-route="submissions">Entregas</button>
+        <button class="nav-item" data-route="docs">Documentación</button>
+      </nav>
+      <div class="profile" aria-label="Perfil de Laura Mejía">
+        <span class="avatar" aria-hidden="true">LM</span>
+        <span><strong>Laura Mejía</strong><small>3 asignaturas</small></span>
+      </div>
+    </header>
+
+    <main id="main" tabindex="-1">
+      <section id="view-week" class="view active" aria-labelledby="week-title">
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">Lunes, 12 de octubre</p>
+            <h1 id="week-title">Tu próxima acción, sin buscar curso por curso</h1>
+            <p>Ordenamos las actividades por vencimiento, esfuerzo y estado para que puedas decidir en segundos.</p>
+          </div>
+          <button class="secondary-button" id="open-change-summary">3 cambios esta semana</button>
+        </div>
+
+        <div class="summary-grid" aria-label="Resumen de la semana">
+          <article><span>Pendientes</span><strong>4</strong><small>de 11 actividades</small></article>
+          <article><span>Tiempo estimado</span><strong>7 h</strong><small>antes del jueves</small></article>
+          <article><span>Completadas</span><strong>6</strong><small>una requiere confirmación</small></article>
+        </div>
+
+        <div class="workspace">
+          <section class="task-panel" aria-labelledby="task-list-title">
+            <div class="panel-heading">
+              <div><p class="eyebrow">HOY</p><h2 id="task-list-title">Actividades priorizadas</h2></div>
+              <button class="icon-button" id="filter-button" aria-expanded="false" aria-controls="filter-panel">Filtrar</button>
+            </div>
+            <div id="filter-panel" class="filter-panel" hidden>
+              <label><input type="checkbox" checked data-filter="pending"> Pendientes</label>
+              <label><input type="checkbox" checked data-filter="submitted"> Enviadas</label>
+            </div>
+            <div id="task-list" class="task-list" role="list"></div>
+          </section>
+
+          <aside class="detail-panel" id="task-detail" aria-live="polite"></aside>
+        </div>
+      </section>
+
+      <section id="view-planner" class="view" aria-labelledby="planner-title">
+        <div class="page-heading compact">
+          <div><p class="eyebrow">PLANIFICADOR</p><h1 id="planner-title">Una sola fuente de verdad</h1><p>Reserva tiempo sin copiar pendientes a otra herramienta.</p></div>
+          <button class="primary-button" id="add-block">Agregar bloque de estudio</button>
+        </div>
+        <div class="planner-card">
+          <div class="week-days" role="grid" aria-label="Plan de la semana">
+            <div class="day muted"><strong>Lun 12</strong><span>Hoy</span></div>
+            <div class="day"><strong>Mar 13</strong><button class="time-block blue" data-task="0"><b>19:00</b> Prototipo UI/UX<small>2 horas</small></button></div>
+            <div class="day"><strong>Mié 14</strong><button class="time-block amber" data-task="1"><b>20:00</b> Ética digital<small>45 minutos</small></button></div>
+            <div class="day"><strong>Jue 15</strong><button class="time-block green" data-task="2"><b>18:30</b> Quiz Unidad 2<small>30 minutos</small></button></div>
+            <div class="day"><strong>Vie 16</strong><span>Sin bloques</span></div>
+          </div>
+          <div class="planner-note"><strong>7 horas disponibles</strong><span>El plan cubre las actividades urgentes y conserva dos horas de margen.</span></div>
+        </div>
+      </section>
+
+      <section id="view-submissions" class="view" aria-labelledby="submissions-title">
+        <div class="page-heading compact">
+          <div><p class="eyebrow">ENTREGAS</p><h1 id="submissions-title">Estados que no dejan dudas</h1><p>Cada entrega distingue preparación, carga, envío y confirmación.</p></div>
+        </div>
+        <div class="status-board">
+          <article class="status-card attention"><span class="status-pill warning">En preparación</span><h2>Actividad 3 · Prototipo de alta fidelidad</h2><p>UI/UX para Arquitectos</p><div class="status-meta"><span>Vence en 2 días</span><span>2 h estimadas</span></div><button class="primary-button" data-start-submission>Continuar entrega</button></article>
+          <article class="status-card"><span class="status-pill success">Enviada</span><h2>Quiz Unidad 2</h2><p>Gobierno de TI</p><div class="status-meta"><span>14 oct · 14:04</span><span>ENT-4F7C2</span></div><button class="secondary-button" data-download-receipt>Descargar comprobante</button></article>
+          <article class="status-card"><span class="status-pill neutral">Calificada</span><h2>Análisis de caso</h2><p>Ética digital</p><div class="status-meta"><span>4.6 / 5.0</span><span>Ver retroalimentación</span></div></article>
+        </div>
+      </section>
+
+      <section id="view-docs" class="view" aria-labelledby="docs-title">
+        <div class="page-heading compact">
+          <div><p class="eyebrow">TRAZABILIDAD</p><h1 id="docs-title">Decisiones e iteraciones documentadas</h1><p>La interfaz conecta evidencia, decisión y mejora esperada.</p></div>
+        </div>
+        <div class="docs-layout">
+          <section class="flow-card" aria-labelledby="flow-title"><h2 id="flow-title">Flujo principal</h2><ul class="flow-list"><li><b>Priorizar</b><span>Mi Semana consolida todos los cursos.</span></li><li><b>Comprender</b><span>El detalle reúne esfuerzo, formato y requisitos.</span></li><li><b>Preparar</b><span>El asistente valida archivo y requisitos.</span></li><li><b>Revisar y enviar</b><span>Una pantalla separa carga de envío.</span></li><li><b>Confirmar</b><span>Código persistente y comprobante descargable.</span></li></ul></section>
+          <section class="decision-card" aria-labelledby="decision-title"><h2 id="decision-title">De la evidencia a la interfaz</h2><div class="decision-table" role="table" aria-label="Trazabilidad de decisiones"><div role="row"><b role="columnheader">Hallazgo</b><b role="columnheader">Decisión</b><b role="columnheader">Cómo se comprueba</b></div><div role="row"><span>La prioridad se reconstruye en cuatro pantallas.</span><span>Lista consolidada con motivo de prioridad.</span><span>Identificar la próxima actividad en menos de 10 s.</span></div><div role="row"><span>En móvil se ve la fecha, pero no el esfuerzo.</span><span>Resumen accionable antes de las instrucciones.</span><span>Decidir si la tarea cabe en el tiempo disponible.</span></div><div role="row"><span>Archivo cargado se confunde con entrega enviada.</span><span>Estados separados y comprobante con código.</span><span>Reconocer el estado correctamente sin reverificar.</span></div></div></section>
+          <section class="iteration-card" aria-labelledby="iteration-title"><h2 id="iteration-title">Iteración inicial</h2><div class="iteration"><span>Antes</span><p>La fecha era el dato principal y “Enviar” servía para acciones distintas.</p></div><div class="iteration after"><span>Ahora</span><p>El esfuerzo y los requisitos aparecen junto a la fecha; “Cargar archivo” y “Confirmar envío” son pasos separados.</p></div><p class="evidence-note"><strong>Mejora esperada:</strong> menos carga de memoria y un cierre inequívoco de la entrega.</p></section>
+        </div>
+      </section>
+
+      <section id="view-submission" class="view" aria-labelledby="submission-title">
+        <div class="submission-header"><button class="text-button" id="leave-submission">Volver a la actividad</button><div><p class="eyebrow">UI/UX PARA ARQUITECTOS</p><h1 id="submission-title">Entregar prototipo de alta fidelidad</h1></div></div>
+        <ol class="stepper" aria-label="Progreso de la entrega"><li class="current">Preparar</li><li>Cargar</li><li>Revisar</li><li>Confirmar</li></ol>
+        <div id="submission-stage" class="submission-stage" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navegación móvil">
+      <button class="active" data-route="week">Semana</button><button data-route="planner">Plan</button><button data-route="submissions">Entregas</button><button data-route="docs">Decisiones</button>
+    </nav>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
